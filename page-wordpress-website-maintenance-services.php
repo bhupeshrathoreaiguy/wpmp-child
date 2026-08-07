@@ -157,6 +157,19 @@ $cfg = array(
 		array( 'q' => 'Will updates break my website?', 'a' => 'We take a full backup before every update and test changes before pushing them live on higher plans. If anything ever breaks on our watch, we roll it back the same day at no extra cost. That is the whole point of a managed service.' ),
 		array( 'q' => 'Do you maintain WooCommerce and online stores?', 'a' => 'Yes. Stores have more moving parts, so our Pro plan includes WooCommerce support: keeping checkout, payment gateways and extensions current, and keeping the store fast and stable during high-traffic periods.' ),
 		array( 'q' => 'Do you work with my hosting provider?', 'a' => 'Yes, we support every major host including Kinsta, WP Engine, Cloudways, SiteGround, Bluehost and others. If your host is the thing holding your site back, we can migrate you somewhere better as part of onboarding.' ),
+		array( 'q' => 'Do I need monthly website maintenance?', 'a' => 'If your website brings in leads, sales or bookings, yes. WordPress releases security and plugin updates constantly, and skipping them is the number one cause of hacked sites. Monthly maintenance keeps those risks handled on a schedule instead of leaving you exposed until something breaks.' ),
+		array( 'q' => 'Can you fix a hacked WordPress website?', 'a' => 'Yes. We clean the infection, remove malicious files and backdoors, restore a clean version from backup where needed, and close the vulnerability that let it in. On maintenance plans this is included; as a one-time hack cleanup it is a fixed-fee emergency service.' ),
+		array( 'q' => 'Do you update plugins and themes?', 'a' => 'Every week. We update WordPress core, themes and plugins, but we back up first and test after, and on higher plans we stage major updates before they touch your live site, so an update never quietly breaks something.' ),
+		array( 'q' => 'Do you offer emergency support?', 'a' => 'Yes. If your site goes down, gets hacked or breaks, higher plans include priority and same-day response. Our monitoring often catches problems before you even notice them.' ),
+		array( 'q' => 'How often should WordPress be updated?', 'a' => 'Updates should be reviewed at least weekly, because attackers exploit known plugin vulnerabilities within days of a patch being released. Backups should run daily and monitoring should be continuous. Consistency is what actually keeps a site safe.' ),
+		array( 'q' => 'Do you provide backups, and how often?', 'a' => 'Yes, daily automated off-site backups stored away from your host, so a server failure can never take your backup with it. One click restores your entire site to any recent point.' ),
+		array( 'q' => 'Can you improve my site speed and Core Web Vitals?', 'a' => 'Yes. Speed work is included from the Growth plan up: caching, image optimization, database cleanup and front-end tuning to improve Core Web Vitals, which also helps your Google rankings.' ),
+		array( 'q' => 'Do you offer white-label maintenance for agencies?', 'a' => 'Yes. Our Pro / Agency plan includes white-label monthly reports so you can maintain client sites under your own brand while we do the work behind the scenes.' ),
+		array( 'q' => 'What if I only need a one-time fix, not a plan?', 'a' => 'That is fine. We handle one-time WordPress fixes from $99, no plan required, whether it is a broken feature, a failed update or a hacked site. If ongoing care would serve you better, we will say so honestly.' ),
+		array( 'q' => 'How do I know my site is actually being maintained?', 'a' => 'You get a plain-English report every month showing what we updated, what we blocked, uptime, speed scores and backup status. No jargon, no mystery, just proof the work is happening.' ),
+		array( 'q' => 'Do you handle website migrations?', 'a' => 'Yes. If your current host is holding your site back, we can migrate you to a better one as part of onboarding, with no downtime and everything tested before we switch over.' ),
+		array( 'q' => 'Can you maintain membership, LMS or booking sites?', 'a' => 'Yes. Membership, LMS and booking sites have more moving parts and integrations, which makes consistent maintenance more important, not less. We keep the plugins, payments and access flows working.' ),
+		array( 'q' => 'Is my site access and data secure with you?', 'a' => 'Yes. We use secure, least-privilege access, remove credentials when work is done, and never share your data. Security is the core of what we do; we hold ourselves to the standard we sell.' ),
 		array( 'q' => 'Is there a contract, and how do I get started?', 'a' => 'No lock-in contracts. Everything is month to month and you can cancel any time. To start, send us your URL for a free site audit, pick a plan, and we take over within 24 hours.' ),
 	),
 );
@@ -661,6 +674,51 @@ $book_link = ! empty( $cfg['book_url'] ) ? esc_url( $cfg['book_url'] ) : '#conta
 	</div>
 </section>
 
+<style>
+.fp .prob-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:26px}
+.fp .prob{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:24px}
+.fp .prob .ic{width:44px;height:44px;border-radius:12px;background:var(--warn-soft);color:#b4402c;display:grid;place-items:center;margin-bottom:14px}
+.fp .prob h3{font-size:1.05rem;margin:0 0 6px}
+.fp .prob p{font-size:.93rem;color:var(--muted);margin:0}
+.fp .prob .fix{display:block;margin-top:10px;font-size:.88rem;font-weight:700;color:var(--accent-deep)}
+.fp .mrun{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:26px}
+.fp .mrun .col{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:20px}
+.fp .mrun h3{font-size:1rem;margin:0 0 12px;color:var(--accent-deep)}
+.fp .mrun ul{list-style:none;margin:0;padding:0}
+.fp .mrun li{font-size:.9rem;color:#232a33;padding:7px 0 7px 20px;position:relative;border-bottom:1px solid var(--line)}
+.fp .mrun li:last-child{border-bottom:0}
+.fp .mrun li::before{content:"";position:absolute;left:0;top:12px;width:9px;height:9px;border-radius:3px;background:var(--accent-soft);border:1px solid var(--accent)}
+.fp .matrix-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:14px;margin-top:26px}
+.fp table.matrix{width:100%;border-collapse:collapse;font-size:.95rem;min-width:560px}
+.fp .matrix th,.fp .matrix td{padding:13px 16px;text-align:left;border-bottom:1px solid var(--line)}
+.fp .matrix thead th{background:var(--ink);color:#fff;font-family:var(--display);font-weight:700;font-size:.88rem}
+.fp .matrix td:first-child{font-weight:700}
+.fp .matrix tbody tr:nth-child(even){background:#fbfbf7}
+.fp .matrix .ok{color:var(--accent-deep);font-weight:700}
+@media(max-width:820px){.fp .prob-grid,.fp .mrun{grid-template-columns:1fr}}
+@media(max-width:520px){.fp .mrun{grid-template-columns:1fr}}
+</style>
+
+<!-- PROBLEMS WE SOLVE -->
+<section id="problems">
+	<div class="wrap">
+		<div class="center">
+			<span class="eyebrow">Sound familiar?</span>
+			<h2 style="margin-top:14px">WordPress problems we solve every day</h2>
+			<p class="lead" style="margin:14px auto 0">If any of these have happened to you, they are exactly what ongoing maintenance prevents, and what we fix fast when they slip through.</p>
+		</div>
+		<div class="prob-grid">
+			<div class="prob"><span class="ic"><?php echo fp_icon( 'alert' ); ?></span><h3>The white screen of death</h3><p>Your site loads a blank page after an update or plugin conflict.</p><span class="fix">We roll back &amp; fix the conflict</span></div>
+			<div class="prob"><span class="ic"><?php echo fp_icon( 'shield' ); ?></span><h3>Hacked or defaced site</h3><p>Spam links, redirects or a Google security warning on your domain.</p><span class="fix">Same-day malware cleanup</span></div>
+			<div class="prob"><span class="ic"><?php echo fp_icon( 'gauge' ); ?></span><h3>Painfully slow pages</h3><p>Visitors bounce and rankings slip because the site crawls.</p><span class="fix">Speed &amp; Core Web Vitals tuning</span></div>
+			<div class="prob"><span class="ic"><?php echo fp_icon( 'refresh' ); ?></span><h3>Updates that break things</h3><p>You are scared to click update because last time it took the site down.</p><span class="fix">Backed-up, staged, tested updates</span></div>
+			<div class="prob"><span class="ic"><?php echo fp_icon( 'wrench' ); ?></span><h3>Broken forms &amp; features</h3><p>Your contact form stopped sending and you found out from a lost lead.</p><span class="fix">Monitoring &amp; quick fixes</span></div>
+			<div class="prob"><span class="ic"><?php echo fp_icon( 'clock' ); ?></span><h3>Unexpected downtime</h3><p>The site goes offline and nobody tells you until a customer does.</p><span class="fix">24/7 uptime alerts</span></div>
+		</div>
+		<p style="text-align:center;margin-top:24px">Most of these trace back to skipped maintenance. Our <a href="<?php echo esc_url( home_url( '/' ) ); ?>" style="color:var(--accent-deep);font-weight:600;text-decoration:underline">website maintenance packages</a> stop them before they start, and our <a href="<?php echo esc_url( home_url( '/website-maintenance-cost/' ) ); ?>" style="color:var(--accent-deep);font-weight:600;text-decoration:underline">cost guide</a> shows what that protection runs.</p>
+	</div>
+</section>
+
 <!-- PRICING -->
 <section id="pricing" class="pricing">
 	<div class="wrap">
@@ -685,7 +743,7 @@ $book_link = ! empty( $cfg['book_url'] ) ? esc_url( $cfg['book_url'] ) : '#conta
 			</div>
 			<?php endforeach; ?>
 		</div>
-		<p class="pricing-note">Just need one thing fixed? We do <a href="<?php echo esc_attr( $book_link ); ?>">one-time WordPress fixes from $99</a>, no plan required.</p>
+		<p class="pricing-note">Just need one thing fixed? We do <a href="<?php echo esc_attr( $book_link ); ?>">one-time WordPress fixes from $99</a>, no plan required. Want to see how this compares to the market? Read our <a href="<?php echo esc_url( home_url( '/website-maintenance-cost/' ) ); ?>">website maintenance cost guide</a>.</p>
 	</div>
 </section>
 
@@ -703,6 +761,23 @@ $book_link = ! empty( $cfg['book_url'] ) ? esc_url( $cfg['book_url'] ) : '#conta
 				<p><?php echo esc_html( $st['desc'] ); ?></p>
 			</div>
 			<?php endforeach; ?>
+		</div>
+	</div>
+</section>
+
+<!-- MONTHLY RUN -->
+<section id="monthly" class="compare">
+	<div class="wrap">
+		<div class="center">
+			<span class="eyebrow">The work, on a schedule</span>
+			<h2 style="margin-top:14px">What we actually do every month</h2>
+			<p class="lead" style="margin:14px auto 0">Maintenance is not a one-off. Here is the rhythm that keeps your site healthy, running quietly in the background whether or not you are watching.</p>
+		</div>
+		<div class="mrun">
+			<div class="col"><h3>Weekly</h3><ul><li>Review &amp; apply updates</li><li>Back up before changes</li><li>Test the site after</li><li>Verify backups ran</li></ul></div>
+			<div class="col"><h3>Continuous</h3><ul><li>24/7 uptime monitoring</li><li>Firewall &amp; login defense</li><li>Malware scanning</li><li>Instant break alerts</li></ul></div>
+			<div class="col"><h3>Monthly</h3><ul><li>Speed &amp; Core Web Vitals</li><li>Database cleanup</li><li>Broken-link review</li><li>Plain-English report</li></ul></div>
+			<div class="col"><h3>Quarterly</h3><ul><li>Deep security audit</li><li>Remove unused plugins</li><li>Licence &amp; domain checks</li><li>Backup strategy review</li></ul></div>
 		</div>
 	</div>
 </section>
@@ -728,6 +803,29 @@ $book_link = ! empty( $cfg['book_url'] ) ? esc_url( $cfg['book_url'] ) : '#conta
 					<tr><td>Real developer on call</td><td class="col-us">Yes</td><td class="x">It's just you</td><td>When available</td></tr>
 					<tr><td>Predictable monthly cost</td><td class="col-us">Flat rate</td><td>Hidden time cost</td><td>Variable</td></tr>
 					<tr><td>Roll-back guarantee</td><td class="col-us">Yes, same day</td><td class="x">None</td><td class="x">None</td></tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</section>
+
+<!-- RESPONSE MATRIX -->
+<section id="response">
+	<div class="wrap">
+		<div class="center">
+			<span class="eyebrow">When something goes wrong</span>
+			<h2 style="margin-top:14px">Response &amp; emergency support by plan</h2>
+			<p class="lead" style="margin:14px auto 0">How fast we jump in depends on your plan and the severity. Revenue-critical problems always come first.</p>
+		</div>
+		<div class="matrix-wrap">
+			<table class="matrix">
+				<thead><tr><th>Situation</th><th>Essential</th><th>Growth</th><th>Pro / Agency</th></tr></thead>
+				<tbody>
+					<tr><td>Site down / hacked</td><td class="ok">Same day</td><td class="ok">Under 4 hrs</td><td class="ok">Priority, fastest</td></tr>
+					<tr><td>Broken feature / form</td><td>Next business day</td><td class="ok">Under 4 hrs</td><td class="ok">Same day</td></tr>
+					<tr><td>Update that broke something</td><td class="ok">Rolled back same day</td><td class="ok">Rolled back same day</td><td class="ok">Rolled back same day</td></tr>
+					<tr><td>Small content edits</td><td>Not included</td><td class="ok">2 hrs/mo included</td><td class="ok">Unlimited small edits</td></tr>
+					<tr><td>General questions</td><td>Email</td><td class="ok">Priority email</td><td class="ok">Dedicated manager</td></tr>
 				</tbody>
 			</table>
 		</div>
