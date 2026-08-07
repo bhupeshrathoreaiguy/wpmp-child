@@ -11,7 +11,7 @@ $c = wpmp_cfg();
 /* Flip 'live' => true as each page ships, so the footer never links to a 404. */
 $services = array(
 	array( 'WordPress Website Maintenance Services', '/wordpress-website-maintenance-services/', true ),
-	array( 'Website Maintenance Cost Guide',        '/website-maintenance-cost/',               false ),
+	array( 'Website Maintenance Cost Guide',        '/website-maintenance-cost/',               true ),
 	array( 'Website Maintenance Plans',             '/website-maintenance-plans/',              false ),
 	array( 'WordPress Care Plans',                  '/wordpress-care-plans/',                   false ),
 	array( 'Malware Removal & Security',            '/wordpress-malware-removal-security/',     false ),
