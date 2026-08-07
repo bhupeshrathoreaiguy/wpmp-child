@@ -16,7 +16,7 @@ $services = array(
 	array( 'WordPress Care Plans',                  '/wordpress-care-plans/',                   true ),
 	array( 'Website Maintenance Company (USA)',     '/website-maintenance-company/',            true ),
 	array( 'Malware Removal & Security',            '/wordpress-malware-removal-security/',     false ),
-	array( 'Ecommerce Website Maintenance',         '/ecommerce-website-maintenance/',          false ),
+	array( 'Ecommerce Website Maintenance',         '/ecommerce-website-maintenance/',          true ),
 	array( 'Small Business Website Maintenance',    '/small-business-website-maintenance/',     false ),
 );
 $company = array(
