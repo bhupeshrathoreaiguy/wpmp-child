@@ -43,17 +43,17 @@ $cfg = array(
 	'rating'           => '4.9',
 	'reviews'          => '120+',
 	'reviews_are_real' => false,   // schema rating stays OFF until this is true
-	'sites_managed'    => '150+',
+	'sites_managed'    => '',
 	'response_time'    => 'under 4 hrs',
 
 	'seo_title' => 'Website Maintenance Packages | WordPress Plans From $59/mo',
 	'seo_desc'  => 'Flat-rate website maintenance packages for WordPress: weekly updates, security, daily backups, speed tuning and same-day fixes. US-focused team, no contracts, plans from $59/mo.',
 
 	'stats' => array(
-		array( 'num' => '150+',  'label' => 'Sites under care' ),
-		array( 'num' => '99.9%', 'label' => 'Average uptime' ),
+		array( 'num' => '8+',    'label' => 'Years in WordPress & SEO' ),
+		array( 'num' => '24/7',  'label' => 'Uptime monitoring' ),
 		array( 'num' => '<4 hr', 'label' => 'Support response' ),
-		array( 'num' => '12+',   'label' => 'Years on WordPress' ),
+		array( 'num' => 'Daily', 'label' => 'Off-site backups' ),
 	),
 
 	'plans' => array(
@@ -97,7 +97,7 @@ $cfg = array(
 				'WooCommerce & payment gateway support',
 				'Dedicated account manager',
 				'White-label monthly reports for your clients',
-				'Emergency phone support',
+				'Priority emergency support',
 				'3 SEO blog posts per month',
 			),
 			'cta' => 'Talk to us',
@@ -136,11 +136,7 @@ $cfg = array(
 		array( 'title' => 'You stop thinking about it', 'desc' => 'Updates, security, backups and fixes run on autopilot. You get one clear report a month and your evenings back.' ),
 	),
 
-	'testimonials' => array(
-		array( 'quote' => 'We broke our own site twice trying to keep up with updates. Since handing it over, the monthly report is the only reminder that maintenance is even happening.', 'name' => 'Priya Nayar', 'role' => 'Owner, Nayar Dental' ),
-		array( 'quote' => 'A plugin update killed our booking form on a Friday night. It was fixed before I saw the alert email. That one save covered the plan for the year.', 'name' => 'Greg Olsen', 'role' => 'Director, Olsen Roofing' ),
-		array( 'quote' => 'We white-label their maintenance for every client site we build. Our retainers got more profitable and our weekends came back.', 'name' => 'Sara Kim', 'role' => 'Founder, Northlight Studio' ),
-	),
+	'testimonials' => array(),
 
 	/* FAQ — PAA-driven. These feed FAQPage schema. */
 	'faqs' => array(
@@ -538,7 +534,7 @@ if ( ! function_exists( 'fp_icon' ) ) {
 	<span class="blob blob-2" aria-hidden="true"></span>
 	<div class="wrap hero-grid">
 		<div>
-			<span class="hero-pill"><span class="dot"></span> Trusted by <?php echo esc_html( $cfg['sites_managed'] ); ?> WordPress sites</span>
+			<span class="hero-pill"><span class="dot"></span> Founder-led &middot; 8+ years in WordPress &amp; SEO</span>
 			<h1>WordPress Website <em>Maintenance Packages</em> That Pay for Themselves</h1>
 			<p class="lead">Flat-rate monthly care that keeps your website updated, secure, backed up and fast, handled by real WordPress developers. One hack cleanup or one day of downtime costs more than a year of maintenance. We make sure you never pay for either.</p>
 			<div class="hero-cta">
@@ -551,7 +547,7 @@ if ( ! function_exists( 'fp_icon' ) ) {
 				<span><?php echo fp_icon( 'check' ); ?>From $<?php echo esc_html( $cfg['plans'][0]['price'] ); ?>/mo flat</span>
 			</div>
 			<div class="hero-trust">
-				<span><span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span> <?php echo esc_html( $cfg['rating'] ); ?> from <?php echo esc_html( $cfg['reviews'] ); ?> clients</span>
+				<span><?php echo fp_icon( 'check' ); ?> Same-day fix guarantee</span>
 				<span class="sep"></span>
 				<span>Replies <?php echo esc_html( $cfg['response_time'] ); ?></span>
 			</div>
@@ -950,21 +946,27 @@ if ( ! function_exists( 'fp_icon' ) ) {
 	</div>
 </section>
 
-<!-- ======================= TESTIMONIALS ======================= -->
+<!-- ======================= WHY TRUST US (honest) ======================= -->
 <section>
 	<div class="wrap">
 		<div class="center">
-			<span class="eyebrow">What clients say</span>
-			<h2 style="margin-top:14px">Owners Who Stopped Worrying About Their Websites</h2>
+			<span class="eyebrow">Why trust us</span>
+			<h2 style="margin-top:14px">Founder-led WordPress care, done properly</h2>
+			<p class="lead" style="margin:14px auto 0;max-width:60ch">A specialist team, not a dashboard and not a generalist agency. Here is what that means for your site.</p>
 		</div>
 		<div class="quotes">
-			<?php foreach ( $cfg['testimonials'] as $t ) : ?>
 			<div class="quote">
-				<span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
-				<p>&ldquo;<?php echo esc_html( $t['quote'] ); ?>&rdquo;</p>
-				<div class="who"><b><?php echo esc_html( $t['name'] ); ?></b><span><?php echo esc_html( $t['role'] ); ?></span></div>
+				<p><strong>WordPress specialists only.</strong> We work on WordPress and WooCommerce exclusively, so we catch the plugin conflicts and update risks that generalists miss.</p>
+				<div class="who"><b>8+ years</b><span>in WordPress &amp; SEO</span></div>
 			</div>
-			<?php endforeach; ?>
+			<div class="quote">
+				<p><strong>Real developers, real accountability.</strong> A human who knows your site handles every fix, backed by our guarantee: if we break it, we fix it the same day, free.</p>
+				<div class="who"><b>Same-day</b><span>fix guarantee</span></div>
+			</div>
+			<div class="quote">
+				<p><strong>No lock-in, ever.</strong> Every plan is month to month. We keep your business by being good at the job, not by trapping you in a contract.</p>
+				<div class="who"><b>Month to month</b><span>cancel anytime</span></div>
+			</div>
 		</div>
 	</div>
 </section>

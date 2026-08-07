@@ -42,10 +42,10 @@ include get_theme_file_path( 'parts/site-header.php' );
 </section>
 
 <section class="stats"><div class="wrap stats-grid">
-	<div class="stat"><div class="n">150+</div><div class="l">Sites under care</div></div>
-	<div class="stat"><div class="n">99.9%</div><div class="l">Average uptime</div></div>
+	<div class="stat"><div class="n">8+</div><div class="l">Years in WordPress &amp; SEO</div></div>
+	<div class="stat"><div class="n">24/7</div><div class="l">Uptime monitoring</div></div>
 	<div class="stat"><div class="n">&lt;4 hr</div><div class="l">Support response</div></div>
-	<div class="stat"><div class="n">12+</div><div class="l">Years on WordPress</div></div>
+	<div class="stat"><div class="n">Daily</div><div class="l">Off-site backups</div></div>
 </div></section>
 
 <section style="text-align:center">

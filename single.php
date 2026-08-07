@@ -172,7 +172,7 @@ $rt_min   = max( 1, (int) ceil( $rt_words / 220 ) );
 			<span class="av"><?php echo fp_icon( 'user' ); ?></span>
 			<div>
 				<b><?php the_author(); ?></b>
-				<p><?php echo esc_html( get_the_author_meta( 'description' ) ? get_the_author_meta( 'description' ) : 'WordPress maintenance specialist at ' . $brand . '. We keep ' . '150+' . ' sites secure, fast and online.' ); ?></p>
+				<p><?php echo esc_html( get_the_author_meta( 'description' ) ? get_the_author_meta( 'description' ) : wpmp_cfg()['author_bio'] ); ?></p>
 			</div>
 		</div>
 	</div>

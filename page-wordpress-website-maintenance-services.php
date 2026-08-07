@@ -43,7 +43,7 @@ $cfg = array(
 
 	'rating'        => '4.9',
 	'reviews'       => '120+',
-	'sites_managed' => '150+',
+	'sites_managed' => '',
 	'response_time' => 'under 4 hrs',
 
 	/* ----- SEO copy you control. Used only if no SEO plugin is active. ----- */
@@ -51,10 +51,10 @@ $cfg = array(
 	'seo_desc'    => 'Done-for-you WordPress website maintenance services: weekly updates, security, daily backups, speed tuning and same-day fixes. No contracts. Plans from $59/mo.',
 
 	'stats' => array(
-		array( 'num' => '150+',  'label' => 'Sites under care' ),
-		array( 'num' => '99.9%', 'label' => 'Average uptime' ),
+		array( 'num' => '8+',    'label' => 'Years in WordPress & SEO' ),
+		array( 'num' => '24/7',  'label' => 'Uptime monitoring' ),
 		array( 'num' => '<4 hr', 'label' => 'Support response' ),
-		array( 'num' => '12+',   'label' => 'Years on WordPress' ),
+		array( 'num' => 'Daily', 'label' => 'Off-site backups' ),
 	),
 
 	/* ----- What's included (deeper than the homepage on purpose) ----- */
@@ -142,11 +142,7 @@ $cfg = array(
 	),
 
 	/* ----- Testimonials (fresh, NOT reused from homepage) ----- */
-	'testimonials' => array(
-		array( 'quote' => 'We tried doing updates ourselves and broke the site twice. Handed it over and have not thought about it since. The monthly report is the only time I remember we even have a website to maintain.', 'name' => 'Priya Nayar', 'role' => 'Owner, Nayar Dental' ),
-		array( 'quote' => 'A plugin update took our booking form down on a Friday night. They had it fixed before I even saw the alert. That one save paid for a year of the plan.', 'name' => 'Greg Olsen', 'role' => 'Director, Olsen Roofing' ),
-		array( 'quote' => 'As an agency we were drowning in client maintenance. White-labeling it to this team gave us our weekends back and made our retainers more profitable.', 'name' => 'Sara Kim', 'role' => 'Founder, Northlight Studio' ),
-	),
+	'testimonials' => array(),
 
 	/* ----- FAQ (long-tail, "People Also Ask" style, different from homepage) ----- */
 	'faqs' => array(
@@ -832,21 +828,27 @@ $book_link = ! empty( $cfg['book_url'] ) ? esc_url( $cfg['book_url'] ) : '#conta
 	</div>
 </section>
 
-<!-- TESTIMONIALS -->
+<!-- WHY TRUST US (honest) -->
 <section>
 	<div class="wrap">
 		<div class="center">
-			<span class="eyebrow">What clients say</span>
-			<h2 style="margin-top:14px">Owners who stopped worrying about their site</h2>
+			<span class="eyebrow">Why trust us</span>
+			<h2 style="margin-top:14px">Founder-led WordPress care, done properly</h2>
+			<p class="lead" style="margin:14px auto 0;max-width:60ch">A specialist team, not a dashboard and not a generalist agency. Here is what that means for your site.</p>
 		</div>
 		<div class="quotes">
-			<?php foreach ( $cfg['testimonials'] as $t ) : ?>
 			<div class="quote">
-				<span class="stars">★★★★★</span>
-				<p>&ldquo;<?php echo esc_html( $t['quote'] ); ?>&rdquo;</p>
-				<div class="who"><b><?php echo esc_html( $t['name'] ); ?></b><span><?php echo esc_html( $t['role'] ); ?></span></div>
+				<p><strong>WordPress specialists only.</strong> We work on WordPress and WooCommerce exclusively, so we catch the plugin conflicts and update risks that generalists miss.</p>
+				<div class="who"><b>8+ years</b><span>in WordPress &amp; SEO</span></div>
 			</div>
-			<?php endforeach; ?>
+			<div class="quote">
+				<p><strong>Real developers, real accountability.</strong> A human who knows your site handles every fix, backed by our guarantee: if we break it, we fix it the same day, free.</p>
+				<div class="who"><b>Same-day</b><span>fix guarantee</span></div>
+			</div>
+			<div class="quote">
+				<p><strong>No lock-in, ever.</strong> Every plan is month to month. We keep your business by being good at the job, not by trapping you in a contract.</p>
+				<div class="who"><b>Month to month</b><span>cancel anytime</span></div>
+			</div>
 		</div>
 	</div>
 </section>
@@ -970,11 +972,6 @@ $ld = array(
 				'email'     => $cfg['email'],
 			),
 			'areaServed'  => array( '@type' => 'Country', 'name' => 'United States' ),
-			'aggregateRating' => array(
-				'@type'       => 'AggregateRating',
-				'ratingValue' => $cfg['rating'],
-				'reviewCount' => preg_replace( '/[^0-9]/', '', $cfg['reviews'] ),
-			),
 			'hasOfferCatalog' => array(
 				'@type' => 'OfferCatalog',
 				'name'  => 'WordPress Maintenance Plans',
