@@ -65,6 +65,25 @@ function wpmp_foot_links( $items ) {
 @media(max-width:900px){.fp .mobile-bar{display:flex}body.fp{padding-bottom:76px}}
 @media(max-width:860px){.fp .foot-grid{grid-template-columns:1fr 1fr}.fp .foot-brand{grid-column:1/-1}}
 @media(max-width:520px){.fp .foot-grid{grid-template-columns:1fr}}
+/* ===== global mobile + speed hardening (loads on every page) ===== */
+html{-webkit-text-size-adjust:100%}
+body.fp{overflow-x:clip}
+.fp img,.fp svg,.fp video{max-width:100%}
+.fp img{height:auto}
+.fp table{max-width:100%}
+/* wide tables scroll instead of breaking the layout on phones */
+@media(max-width:680px){
+	.fp table{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch;white-space:nowrap}
+	.fp .blob{display:none!important}          /* drop GPU-heavy blur on mobile */
+	.fp .marquee-track{animation-duration:24s}
+	.fp section{padding:48px 0}
+	.fp h1{font-size:clamp(1.9rem,7vw,2.6rem)}
+	.fp h2{font-size:clamp(1.5rem,5.5vw,2rem)}
+	.fp .btn{width:100%;justify-content:center}
+	.fp .head-actions .btn{width:auto}
+}
+/* never let anything force a horizontal scrollbar */
+.fp .wrap{width:100%}
 </style>
 
 <footer class="site-foot">
@@ -74,11 +93,11 @@ function wpmp_foot_links( $items ) {
 				<span class="foot-logo"><?php echo esc_html( $c['brand'] ); ?></span>
 				<p>Done-for-you WordPress website maintenance packages: updates, security, backups, speed and support. Run by <a href="<?php echo esc_url( $c['company_url'] ); ?>" target="_blank" rel="noopener" style="color:#cdd6df;text-decoration:underline"><?php echo esc_html( $c['company'] ); ?></a>.</p>
 				<div class="foot-social">
-					<a href="<?php echo esc_url( $c['linkedin'] ); ?>" target="_blank" rel="noopener" aria-label="LinkedIn"><?php echo fp_icon( 'linkedin' ); ?></a>
-					<a href="<?php echo esc_url( $c['x'] ); ?>" target="_blank" rel="noopener" aria-label="X"><?php echo fp_icon( 'x' ); ?></a>
-					<a href="mailto:<?php echo esc_attr( $c['email'] ); ?>" aria-label="Email"><?php echo fp_icon( 'mail' ); ?></a>
+					<a href="<?php echo esc_url( $c['linkedin'] ); ?>" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+					<a href="<?php echo esc_url( $c['x'] ); ?>" target="_blank" rel="noopener" aria-label="X"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M4 4l16 16M20 4L4 20"/></svg></a>
+					<a href="mailto:<?php echo esc_attr( $c['email'] ); ?>" aria-label="Email"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg></a>
 				</div>
-				<a class="btn btn-primary foot-book" href="<?php echo esc_url( $c['calendly'] ); ?>" target="_blank" rel="noopener"><?php echo fp_icon( 'cal' ); ?>Book a free call</a>
+				<a class="btn btn-primary foot-book" href="<?php echo esc_url( $c['calendly'] ); ?>" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>Book a free call</a>
 			</div>
 			<div class="foot-col">
 				<h4>Services</h4>
@@ -102,5 +121,5 @@ function wpmp_foot_links( $items ) {
 
 <div class="mobile-bar">
 	<a class="btn btn-ghost" href="<?php echo esc_url( home_url( '/#pricing' ) ); ?>">Packages</a>
-	<a class="btn btn-primary" href="<?php echo esc_url( $c['calendly'] ); ?>" target="_blank" rel="noopener"><?php echo fp_icon( 'cal' ); ?>Book a call</a>
+	<a class="btn btn-primary" href="<?php echo esc_url( $c['calendly'] ); ?>" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>Book a call</a>
 </div>

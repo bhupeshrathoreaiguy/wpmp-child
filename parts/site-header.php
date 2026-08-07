@@ -19,8 +19,8 @@ $c = wpmp_cfg();
 	<div class="wrap top-bar-inner">
 		<span>Free site audit &middot; No lock-in contracts &middot; US-based WordPress team</span>
 		<span class="top-links">
-			<a href="mailto:<?php echo esc_attr( $c['email'] ); ?>"><?php echo fp_icon( 'mail' ); ?><?php echo esc_html( $c['email'] ); ?></a>
-			<a href="<?php echo esc_url( $c['calendly'] ); ?>" target="_blank" rel="noopener"><?php echo fp_icon( 'cal' ); ?>Book a call</a>
+			<a href="mailto:<?php echo esc_attr( $c['email'] ); ?>"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg><?php echo esc_html( $c['email'] ); ?></a>
+			<a href="<?php echo esc_url( $c['calendly'] ); ?>" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>Book a call</a>
 		</span>
 	</div>
 </div>
@@ -45,7 +45,7 @@ $c = wpmp_cfg();
 			<a href="<?php echo esc_url( home_url( '/contact/' ) ); ?>">Contact</a>
 		</nav>
 		<div class="head-actions">
-			<a class="btn btn-primary head-book" href="<?php echo esc_url( $c['calendly'] ); ?>" target="_blank" rel="noopener"><?php echo fp_icon( 'cal' ); ?>Book a call</a>
+			<a class="btn btn-primary head-book" href="<?php echo esc_url( $c['calendly'] ); ?>" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>Book a call</a>
 		</div>
 	</div>
 </header>
