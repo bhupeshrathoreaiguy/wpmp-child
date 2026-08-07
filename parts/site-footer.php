@@ -14,6 +14,7 @@ $services = array(
 	array( 'Website Maintenance Cost Guide',        '/website-maintenance-cost/',               true ),
 	array( 'Website Maintenance Plans',             '/website-maintenance-plans/',              true ),
 	array( 'WordPress Care Plans',                  '/wordpress-care-plans/',                   true ),
+	array( 'Website Maintenance Company (USA)',     '/website-maintenance-company/',            true ),
 	array( 'Malware Removal & Security',            '/wordpress-malware-removal-security/',     false ),
 	array( 'Ecommerce Website Maintenance',         '/ecommerce-website-maintenance/',          false ),
 	array( 'Small Business Website Maintenance',    '/small-business-website-maintenance/',     false ),
