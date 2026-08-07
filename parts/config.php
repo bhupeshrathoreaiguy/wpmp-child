@@ -14,6 +14,7 @@ if ( ! function_exists( 'wpmp_cfg' ) ) {
 			'linkedin' => 'https://www.linkedin.com/in/bhupesh-rathore/',
 			'x'        => 'https://x.com/bhupeshrathodz',
 			'founder'  => 'Bhupesh Rathore',
+			'author_bio' => 'Bhupesh Rathore is the founder of ThinkFlow Media and Linkflow.agency, with 8+ years in WordPress, SEO and website operations. He has built, scaled and maintained WordPress sites across business, ecommerce, SaaS and content niches, and speaks on SEO, most recently at the Chiang Mai SEO Conference 2025. He writes here to share practical, no-nonsense guidance on keeping WordPress sites secure, fast and profitable.',
 			'company'  => 'ThinkFlow Media',
 			'company_url' => 'https://thinkflow.agency',
 		);

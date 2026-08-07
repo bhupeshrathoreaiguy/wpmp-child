@@ -23,6 +23,7 @@ $company = array(
 	array( 'Contact',         '/contact/', true ),
 	array( 'Blog',            '/blog/',    true ),
 	array( 'Author: ' . $c['founder'], '/author-profile/', true ),
+	array( 'Free Contract Template', '/website-maintenance-contract-template/', true ),
 );
 $legal = array(
 	array( 'Privacy Policy',  '/privacy-policy/', true ),
