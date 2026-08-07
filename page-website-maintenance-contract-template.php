@@ -18,8 +18,8 @@ $author_photo = 'https://wpwebsitemaintenancepackages.com/wp-content/uploads/202
 $book = $c['calendly'];
 
 /* Upload the generated files to Media, then set these two URLs. */
-$dl_docx = 'https://wpwebsitemaintenancepackages.com/wp-content/uploads/2026/08/website-maintenance-contract-template.docx';
-$dl_pdf  = 'https://wpwebsitemaintenancepackages.com/wp-content/uploads/2026/08/website-maintenance-contract-template.pdf';
+$dl_docx = 'https://wpwebsitemaintenancepackages.com/wp-content/uploads/2026/08/wmct-doc.docx';
+$dl_pdf  = 'https://wpwebsitemaintenancepackages.com/wp-content/uploads/2026/08/wmct-pdf.pdf';
 
 $faqs = array(
 	array( 'What is a website maintenance contract?', 'A website maintenance contract is a written agreement between a client and a provider that defines what maintenance work will be done, how fast problems will be handled, what it costs, and each side\u2019s responsibilities. It protects both parties by putting the scope, the service levels and the payment terms in writing instead of leaving them to memory.' ),
