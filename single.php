@@ -128,34 +128,7 @@ $rt_min   = max( 1, (int) ceil( $rt_words / 220 ) );
 <body <?php body_class( 'fp single' ); ?>>
 <?php if ( function_exists( 'wp_body_open' ) ) { wp_body_open(); } ?>
 
-<div class="top-bar">
-	<div class="wrap top-bar-inner">
-		<span>Free site audit &middot; No lock-in contracts &middot; US-based WordPress team</span>
-		<a class="top-phone" href="tel:<?php echo esc_attr( $phone_raw ); ?>"><?php echo fp_icon( 'phone' ); ?><?php echo esc_html( $phone ); ?></a>
-	</div>
-</div>
-
-<header class="site-head">
-	<div class="wrap head-inner">
-		<a class="logo" href="<?php echo esc_url( home_url( '/' ) ); ?>" aria-label="<?php echo esc_attr( $brand ); ?> home">
-			<span aria-hidden="true">
-				<svg viewBox="0 0 48 48" width="38" height="38">
-					<rect x="1" y="1" width="46" height="46" rx="13" fill="#0E9F6E"/>
-					<path d="M24 10 L35 14 V24 C35 31 30 35 24 38 C18 35 13 31 13 24 V14 Z" fill="none" stroke="#fff" stroke-width="2.4" stroke-linejoin="round"/>
-					<path d="M16 24 H20 L22 19.5 L26 29 L28 24 H32" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
-				</svg>
-			</span>
-			<span class="logo-text"><b>WP Maintenance</b><i>PACKAGES</i></span>
-		</a>
-		<nav class="head-nav" aria-label="Primary">
-			<a href="<?php echo esc_url( home_url( '/#pricing' ) ); ?>">Packages</a>
-			<a href="<?php echo esc_url( home_url( '/#included' ) ); ?>">What&#8217;s Included</a>
-			<a href="<?php echo esc_url( home_url( '/#faq' ) ); ?>">FAQ</a>
-			<a href="<?php echo esc_url( home_url( '/blog/' ) ); ?>">Blog</a>
-		</nav>
-		<a class="btn btn-primary" href="<?php echo esc_url( home_url( '/#pricing' ) ); ?>">See Packages <?php echo fp_icon( 'arrow' ); ?></a>
-	</div>
-</header>
+<?php include get_theme_file_path( 'parts/site-header.php' ); ?>
 
 <?php while ( have_posts() ) : the_post(); ?>
 <main>
@@ -234,18 +207,7 @@ if ( $rel->have_posts() ) :
 </section>
 <?php endif; wp_reset_postdata(); ?>
 
-<footer class="site-foot">
-	<div class="wrap">
-		<div class="foot-top">
-			<span class="foot-logo"><?php echo esc_html( $brand ); ?></span>
-			<a class="btn btn-primary" href="<?php echo esc_url( home_url( '/#pricing' ) ); ?>">See Packages <?php echo fp_icon( 'arrow' ); ?></a>
-		</div>
-		<div class="foot-bottom">
-			<span>&copy; <?php echo esc_html( date( 'Y' ) ); ?> <?php echo esc_html( $brand ); ?>. All rights reserved.</span>
-			<span><a href="tel:<?php echo esc_attr( $phone_raw ); ?>"><?php echo esc_html( $phone ); ?></a></span>
-		</div>
-	</div>
-</footer>
+<?php include get_theme_file_path( 'parts/site-footer.php' ); ?>
 
 <?php wp_footer(); ?>
 </body>

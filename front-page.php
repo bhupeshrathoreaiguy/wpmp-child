@@ -33,10 +33,10 @@ $cfg = array(
 
 	'brand'        => 'WP Maintenance Packages',
 	'topbar'       => true,   // slim value-prop strip above the header. false to hide.
-	'topbar_text'  => '✅ Git deploy test — this text was pushed from GitHub · Free site audit · No contracts',
+	'topbar_text'  => 'Free site audit · No lock-in contracts · US-based WordPress team',
 	'phone'        => '+1 (555) 010-2030',
 	'phone_raw'    => '+15550102030',
-	'email'        => 'hello@wpwebsitemaintenancepackages.com',
+	'email'        => 'hello@thinkflow.agency',
 	'form_shortcode' => '[fluentform id="3"]',
 	'book_url'       => '',
 
@@ -474,43 +474,7 @@ if ( ! function_exists( 'fp_icon' ) ) {
 <body <?php body_class( 'fp' ); ?>>
 <?php if ( function_exists( 'wp_body_open' ) ) { wp_body_open(); } ?>
 
-<!-- ======================= TOP UTILITY BAR ======================= -->
-<?php if ( ! empty( $cfg['topbar'] ) ) : ?>
-<div class="top-bar">
-	<div class="wrap top-bar-inner">
-		<span class="top-msg"><?php echo fp_icon( 'check' ); ?><?php echo esc_html( $cfg['topbar_text'] ); ?></span>
-		<a class="top-phone" href="tel:<?php echo esc_attr( $cfg['phone_raw'] ); ?>"><?php echo fp_icon( 'phone' ); ?><?php echo esc_html( $cfg['phone'] ); ?></a>
-	</div>
-</div>
-<?php endif; ?>
-
-<!-- ======================= HEADER ======================= -->
-<header class="site-head">
-	<div class="wrap head-inner">
-		<a class="logo" href="<?php echo esc_url( home_url( '/' ) ); ?>" aria-label="<?php echo esc_attr( $cfg['brand'] ); ?> home">
-			<span class="logo-mark" aria-hidden="true">
-				<svg viewBox="0 0 48 48" width="38" height="38">
-					<rect x="1" y="1" width="46" height="46" rx="13" fill="#0E9F6E"/>
-					<path d="M24 10 L35 14 V24 C35 31 30 35 24 38 C18 35 13 31 13 24 V14 Z" fill="none" stroke="#fff" stroke-width="2.4" stroke-linejoin="round"/>
-					<path d="M16 24 H20 L22 19.5 L26 29 L28 24 H32" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
-				</svg>
-			</span>
-			<span class="logo-text"><b>WP Maintenance</b><i>PACKAGES</i></span>
-		</a>
-		<nav class="head-nav" aria-label="Primary">
-			<a href="#pricing">Packages</a>
-			<a href="#included">What&#8217;s Included</a>
-			<a href="#cost">Pricing Guide</a>
-			<a href="#faq">FAQ</a>
-		</nav>
-		<div class="head-actions">
-			<a class="head-phone" href="tel:<?php echo esc_attr( $cfg['phone_raw'] ); ?>">
-				<?php echo fp_icon( 'phone' ); ?><?php echo esc_html( $cfg['phone'] ); ?>
-			</a>
-			<a class="btn btn-primary" href="#pricing">See Packages <?php echo fp_icon( 'arrow' ); ?></a>
-		</div>
-	</div>
-</header>
+<?php include get_theme_file_path( 'parts/site-header.php' ); ?>
 
 <!-- ======================= HERO ======================= -->
 <section class="hero">
@@ -987,7 +951,7 @@ if ( ! empty( $live_related ) ) :
 			<h2>Get Your Free Website Audit</h2>
 			<p class="lead">Send us your URL. We reply <?php echo esc_html( $cfg['response_time'] ); ?> with an honest health, security and speed report, and the package that actually fits, even if that is the cheapest one.</p>
 			<ul class="contact-list">
-				<li><?php echo fp_icon( 'phone' ); ?><a href="tel:<?php echo esc_attr( $cfg['phone_raw'] ); ?>"><?php echo esc_html( $cfg['phone'] ); ?></a></li>
+				<li><?php echo fp_icon( 'cal' ); ?><a href="<?php echo esc_url( wpmp_cfg()['calendly'] ); ?>" target="_blank" rel="noopener">Book a free 30-min call</a></li>
 				<li><?php echo fp_icon( 'mail' ); ?><a href="mailto:<?php echo esc_attr( $cfg['email'] ); ?>"><?php echo esc_html( $cfg['email'] ); ?></a></li>
 				<li><?php echo fp_icon( 'check' ); ?>No contracts. Cancel anytime.</li>
 			</ul>
@@ -1017,31 +981,7 @@ if ( ! empty( $live_related ) ) :
 	</div>
 </section>
 
-<!-- ======================= FOOTER ======================= -->
-<footer class="site-foot">
-	<div class="wrap">
-		<div class="foot-top">
-			<span class="foot-logo"><?php echo esc_html( $cfg['brand'] ); ?></span>
-			<a class="btn btn-primary" href="#pricing">See Packages <?php echo fp_icon( 'arrow' ); ?></a>
-		</div>
-		<?php if ( ! empty( $live_related ) ) : ?>
-		<div class="foot-links">
-			<?php foreach ( $live_related as $r ) : ?>
-				<a href="<?php echo esc_url( home_url( $r['url'] ) ); ?>"><?php echo esc_html( $r['label'] ); ?></a>
-			<?php endforeach; ?>
-		</div>
-		<?php endif; ?>
-		<div class="foot-bottom">
-			<span>&copy; <?php echo esc_html( date( 'Y' ) ); ?> <?php echo esc_html( $cfg['brand'] ); ?>. All rights reserved.</span>
-			<span><a href="tel:<?php echo esc_attr( $cfg['phone_raw'] ); ?>"><?php echo esc_html( $cfg['phone'] ); ?></a></span>
-		</div>
-	</div>
-</footer>
-
-<div class="mobile-bar">
-	<a class="btn btn-ghost" href="tel:<?php echo esc_attr( $cfg['phone_raw'] ); ?>"><?php echo fp_icon( 'phone' ); ?>Call</a>
-	<a class="btn btn-primary" href="#pricing">See Packages</a>
-</div>
+<?php include get_theme_file_path( 'parts/site-footer.php' ); ?>
 
 <!-- ======================= JSON-LD ======================= -->
 <script type="application/ld+json">
@@ -1051,7 +991,6 @@ $provider = array(
 	'@id'       => home_url( '/#organization' ),
 	'name'      => $cfg['brand'],
 	'url'       => home_url( '/' ),
-	'telephone' => $cfg['phone_raw'],
 	'email'     => $cfg['email'],
 	'priceRange' => '$' . $cfg['plans'][0]['price'] . '-$' . $cfg['plans'][2]['price'] . '/mo',
 	'areaServed' => array( '@type' => 'Country', 'name' => 'United States' ),

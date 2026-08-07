@@ -36,7 +36,7 @@ $cfg = array(
 	'brand'        => 'WP Maintenance Packages',
 	'phone'        => '+1 (555) 010-2030',
 	'phone_raw'    => '+15550102030',
-	'email'        => 'hello@wpwebsitemaintenancepackages.com',
+	'email'        => 'hello@thinkflow.agency',
 
 	'form_shortcode' => '',   // e.g. '[wpforms id="123"]'  — empty uses the fallback form
 	'book_url'       => '',    // optional Calendly link; empty anchors to #contact
@@ -499,20 +499,7 @@ $book_link = ! empty( $cfg['book_url'] ) ? esc_url( $cfg['book_url'] ) : '#conta
 <body <?php body_class( 'fp' ); ?>>
 <?php if ( function_exists( 'wp_body_open' ) ) { wp_body_open(); } ?>
 
-<!-- HEADER -->
-<header class="site-head">
-	<div class="wrap head-inner">
-		<a class="logo" href="<?php echo esc_url( home_url( '/' ) ); ?>">
-			<span class="dot"></span><?php echo esc_html( $cfg['brand'] ); ?>
-		</a>
-		<div class="head-actions">
-			<a class="head-phone" href="tel:<?php echo esc_attr( $cfg['phone_raw'] ); ?>">
-				<?php echo fp_icon( 'phone' ); ?><?php echo esc_html( $cfg['phone'] ); ?>
-			</a>
-			<a class="btn btn-primary" href="#pricing">See Plans <?php echo fp_icon( 'arrow' ); ?></a>
-		</div>
-	</div>
-</header>
+<?php include get_theme_file_path( 'parts/site-header.php' ); ?>
 
 <!-- BREADCRUMB -->
 <div class="wrap">
@@ -782,7 +769,7 @@ $book_link = ! empty( $cfg['book_url'] ) ? esc_url( $cfg['book_url'] ) : '#conta
 			<h2>Get your free WordPress site audit</h2>
 			<p class="lead">Send us your URL. We will reply <?php echo esc_html( $cfg['response_time'] ); ?> with a full health, security and speed check, plus the right plan, or fix what is broken right now.</p>
 			<ul class="contact-list">
-				<li><?php echo fp_icon( 'phone' ); ?><a href="tel:<?php echo esc_attr( $cfg['phone_raw'] ); ?>"><?php echo esc_html( $cfg['phone'] ); ?></a></li>
+				<li><?php echo fp_icon( 'cal' ); ?><a href="<?php echo esc_url( wpmp_cfg()['calendly'] ); ?>" target="_blank" rel="noopener">Book a free 30-min call</a></li>
 				<li><?php echo fp_icon( 'mail' ); ?><a href="mailto:<?php echo esc_attr( $cfg['email'] ); ?>"><?php echo esc_html( $cfg['email'] ); ?></a></li>
 				<li><?php echo fp_icon( 'check' ); ?>No contracts. Cancel anytime.</li>
 			</ul>
@@ -812,25 +799,7 @@ $book_link = ! empty( $cfg['book_url'] ) ? esc_url( $cfg['book_url'] ) : '#conta
 	</div>
 </section>
 
-<!-- FOOTER -->
-<footer class="site-foot">
-	<div class="wrap">
-		<div class="foot-top">
-			<span class="foot-logo"><?php echo esc_html( $cfg['brand'] ); ?></span>
-			<a class="btn btn-primary" href="#pricing">See Plans <?php echo fp_icon( 'arrow' ); ?></a>
-		</div>
-		<div class="foot-bottom">
-			<span>&copy; <?php echo esc_html( date( 'Y' ) ); ?> <?php echo esc_html( $cfg['brand'] ); ?>. All rights reserved.</span>
-			<span><a href="<?php echo esc_url( home_url( '/' ) ); ?>">Home</a> &nbsp;·&nbsp; <a href="tel:<?php echo esc_attr( $cfg['phone_raw'] ); ?>"><?php echo esc_html( $cfg['phone'] ); ?></a></span>
-		</div>
-	</div>
-</footer>
-
-<!-- MOBILE STICKY CTA -->
-<div class="mobile-bar">
-	<a class="btn btn-ghost" href="tel:<?php echo esc_attr( $cfg['phone_raw'] ); ?>"><?php echo fp_icon( 'phone' ); ?>Call</a>
-	<a class="btn btn-primary" href="#pricing">See Plans</a>
-</div>
+<?php include get_theme_file_path( 'parts/site-footer.php' ); ?>
 
 <!-- SEO: JSON-LD structured data (Service + Offers + FAQ + Breadcrumb + Rating) -->
 <script type="application/ld+json">
