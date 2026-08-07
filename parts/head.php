@@ -10,6 +10,8 @@ require_once get_theme_file_path( 'parts/config.php' );
 $c = wpmp_cfg();
 $has_seo = ( defined( 'WPSEO_VERSION' ) || class_exists( 'RankMath' ) || defined( 'AIOSEO_VERSION' ) || function_exists( 'aioseo' ) || defined( 'SEOPRESS_VERSION' ) );
 $seo = isset( $wpmp_seo ) ? $wpmp_seo : array();
+$wpmp_canonical = get_permalink( get_queried_object_id() ) ?: home_url( '/' );
+add_filter( 'rank_math/frontend/canonical', function() use ( $wpmp_canonical ) { return $wpmp_canonical; } );
 ?><!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 <head>
@@ -18,11 +20,11 @@ $seo = isset( $wpmp_seo ) ? $wpmp_seo : array();
 	<?php if ( ! $has_seo && ! empty( $seo ) ) : ?>
 		<?php if ( ! empty( $seo['desc'] ) ) : ?><meta name="description" content="<?php echo esc_attr( $seo['desc'] ); ?>"><?php endif; ?>
 		<meta name="robots" content="index, follow, max-image-preview:large">
-		<link rel="canonical" href="<?php echo esc_url( get_permalink( get_queried_object_id() ) ?: home_url( '/' ) ); ?>">
 	<?php endif; ?>
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+	<link rel="canonical" href="<?php echo esc_url( $wpmp_canonical ); ?>">
 	<?php wp_head(); ?>
 	<style>
 	:root{--bg:#FAFAF6;--surface:#FFFFFF;--ink:#10141A;--muted:#5A6573;--line:#E7E6DF;--accent:#0E9F6E;--accent-deep:#0B7E58;--accent-soft:#E6F6EF;--warn:#E0533D;--warn-soft:#FBE7E2;--shadow:0 1px 2px rgba(16,20,26,.04),0 12px 40px rgba(16,20,26,.06);--radius:16px;--maxw:1140px;--display:'Bricolage Grotesque',Georgia,serif;--body:'Hanken Grotesk',system-ui,sans-serif}
