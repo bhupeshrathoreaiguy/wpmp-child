@@ -33,7 +33,7 @@ $cfg = array(
 
 	'brand'        => 'WP Maintenance Packages',
 	'topbar'       => true,   // slim value-prop strip above the header. false to hide.
-	'topbar_text'  => 'Free site audit · No lock-in contracts · US-based WordPress team',
+	'topbar_text'  => '✅ Git deploy test — this text was pushed from GitHub · Free site audit · No contracts',
 	'phone'        => '+1 (555) 010-2030',
 	'phone_raw'    => '+15550102030',
 	'email'        => 'hello@wpwebsitemaintenancepackages.com',
