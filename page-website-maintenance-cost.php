@@ -697,7 +697,7 @@ include get_theme_file_path( 'parts/site-header.php' );
 			<div class="tier pop"><h3>Growth</h3><div class="amt">$129<span style="font-size:1rem">/mo</span></div><p>Full care plus speed work and monthly developer time.</p></div>
 			<div class="tier"><h3>Pro / Agency</h3><div class="amt">$249<span style="font-size:1rem;color:var(--muted)">/mo</span></div><p>Store support, unlimited small edits, white-label care.</p></div>
 		</div>
-		<p style="text-align:center"><a class="ilink" href="<?php echo esc_url( home_url( '/#pricing' ) ); ?>">See full plan details and what's included &rarr;</a></p>
+		<p style="text-align:center"><a class="ilink" href="<?php echo esc_url( home_url( '/website-maintenance-plans/' ) ); ?>">Compare all website maintenance plans &rarr;</a></p>
 	</div>
 </section>
 

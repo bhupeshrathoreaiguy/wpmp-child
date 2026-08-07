@@ -743,7 +743,7 @@ $book_link = ! empty( $cfg['book_url'] ) ? esc_url( $cfg['book_url'] ) : '#conta
 			</div>
 			<?php endforeach; ?>
 		</div>
-		<p class="pricing-note">Just need one thing fixed? We do <a href="<?php echo esc_attr( $book_link ); ?>">one-time WordPress fixes from $99</a>, no plan required. Want to see how this compares to the market? Read our <a href="<?php echo esc_url( home_url( '/website-maintenance-cost/' ) ); ?>">website maintenance cost guide</a>.</p>
+		<p class="pricing-note">Just need one thing fixed? We do <a href="<?php echo esc_attr( $book_link ); ?>">one-time WordPress fixes from $99</a>, no plan required. Want to see how this compares to the market? Read our <a href="<?php echo esc_url( home_url( '/website-maintenance-cost/' ) ); ?>">website maintenance cost guide</a> or <a href="<?php echo esc_url( home_url( '/website-maintenance-plans/' ) ); ?>">compare all plans</a>.</p>
 	</div>
 </section>
 
