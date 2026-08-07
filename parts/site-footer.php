@@ -84,6 +84,9 @@ body.fp{overflow-x:clip}
 }
 /* never let anything force a horizontal scrollbar */
 .fp .wrap{width:100%}
+/* keep the sticky header below the WP admin bar when logged in */
+body.admin-bar .site-head{top:32px!important}
+@media(max-width:782px){body.admin-bar .site-head{top:46px!important}}
 </style>
 
 <footer class="site-foot">
