@@ -13,7 +13,7 @@ $services = array(
 	array( 'WordPress Website Maintenance Services', '/wordpress-website-maintenance-services/', true ),
 	array( 'Website Maintenance Cost Guide',        '/website-maintenance-cost/',               true ),
 	array( 'Website Maintenance Plans',             '/website-maintenance-plans/',              true ),
-	array( 'WordPress Care Plans',                  '/wordpress-care-plans/',                   false ),
+	array( 'WordPress Care Plans',                  '/wordpress-care-plans/',                   true ),
 	array( 'Malware Removal & Security',            '/wordpress-malware-removal-security/',     false ),
 	array( 'Ecommerce Website Maintenance',         '/ecommerce-website-maintenance/',          false ),
 	array( 'Small Business Website Maintenance',    '/small-business-website-maintenance/',     false ),
