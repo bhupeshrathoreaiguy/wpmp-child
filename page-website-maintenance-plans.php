@@ -132,7 +132,7 @@ include get_theme_file_path( 'parts/site-header.php' );
 	<div class="wrap">
 		<div class="tldr">
 			<h2>The short version</h2>
-			<p>A <strong>website maintenance plan</strong> is a fixed monthly service that keeps your site updated, secure, backed up, fast and working, so you never have to think about the technical side of running it. Ours run from <strong>$59/mo</strong> for small sites to <strong>$249/mo</strong> for stores and agencies, all with no contracts. This page walks through what a plan should include, what each of our plans covers, how to choose, and what it all really costs. If you want general market pricing across every provider, start with our <a class="ilink" href="<?php echo esc_url( home_url( '/website-maintenance-cost/' ) ); ?>">website maintenance cost guide</a>.</p>
+			<p>A <strong>website maintenance plan</strong> is a fixed monthly service that keeps your site updated, secure, backed up, fast and working, so you never have to think about the technical side of running it. Ours run from <strong>$59/mo</strong> for small sites to <strong>$249/mo</strong> for stores and agencies, all with no contracts. This page walks through what a plan should include, what each of our plans covers, how to choose, and what it all really costs. If you want general market pricing across every provider, start with our <a class="ilink" href="<?php echo esc_url( home_url( '/website-maintenance-cost/' ) ); ?>">website maintenance cost guide</a>, and WordPress owners can compare <a class="ilink" href="<?php echo esc_url( home_url( '/wordpress-care-plans/' ) ); ?>">WordPress care plans</a>.</p>
 		</div>
 		<div class="toc">
 			<b>On this page</b>
