@@ -510,6 +510,16 @@ if ( ! function_exists( 'fp_icon' ) ) {
 		.fp .hero-grid>div>*{opacity:1!important}
 		.fp .hero h1 em::after{transform:scaleX(1)!important}
 	}
+	/* ===== marquee strip ===== */
+	.fp .marquee-sec{padding:34px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:linear-gradient(180deg,#fff,var(--bg))}
+	.fp .marquee-title{text-align:center;font-weight:700;color:var(--muted);font-size:.9rem;letter-spacing:.02em;margin-bottom:18px}
+	.fp .marquee{overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+	.fp .marquee-track{display:flex;gap:14px;width:max-content;animation:scrollx 34s linear infinite}
+	.fp .marquee:hover .marquee-track{animation-play-state:paused}
+	.fp .mk{display:inline-flex;align-items:center;gap:8px;white-space:nowrap;background:#fff;border:1px solid var(--line);border-radius:99px;padding:11px 20px;font-weight:700;font-size:.95rem;color:var(--ink);box-shadow:0 1px 2px rgba(16,20,26,.03)}
+	.fp .mk svg{width:15px;height:15px;color:var(--accent)}
+	@keyframes scrollx{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+	.fp .stat .n{will-change:contents}
 	</style>
 </head>
 <body <?php body_class( 'fp' ); ?>>
@@ -566,6 +576,22 @@ if ( ! function_exists( 'fp_icon' ) ) {
 		<?php foreach ( $cfg['stats'] as $s ) : ?>
 			<div class="stat"><div class="n"><?php echo esc_html( $s['num'] ); ?></div><div class="l"><?php echo esc_html( $s['label'] ); ?></div></div>
 		<?php endforeach; ?>
+	</div>
+</section>
+
+<!-- ======================= WORKS WITH (marquee) ======================= -->
+<section class="marquee-sec" aria-label="Compatible platforms and hosts">
+	<div class="wrap"><p class="marquee-title">Works with your entire WordPress stack</p></div>
+	<div class="marquee" aria-hidden="true">
+		<div class="marquee-track">
+			<?php
+			$stack = array( 'WordPress', 'WooCommerce', 'Elementor', 'Kadence', 'Kinsta', 'WP Engine', 'Cloudways', 'SiteGround', 'Cloudflare', 'Yoast', 'Rank Math', 'Divi', 'Gravity Forms', 'LiteSpeed' );
+			$loop  = array_merge( $stack, $stack );
+			foreach ( $loop as $item ) {
+				echo '<span class="mk">' . fp_icon( 'check' ) . esc_html( $item ) . '</span>';
+			}
+			?>
+		</div>
 	</div>
 </section>
 
@@ -1103,6 +1129,32 @@ echo wp_json_encode( $ld, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE );
 		entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
 	}, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
 	els.forEach(function(el){ io.observe(el); });
+
+	// count-up on stat numbers
+	var nums = document.querySelectorAll('.fp .stats .stat .n');
+	var cio = new IntersectionObserver(function(entries){
+		entries.forEach(function(e){
+			if(!e.isIntersecting) return;
+			var el = e.target; cio.unobserve(el);
+			var raw = el.textContent.trim();
+			var m = raw.match(/^(\D*)([\d.]+)(.*)$/);
+			if(!m){ return; }
+			var pre = m[1], target = parseFloat(m[2]), suf = m[3];
+			var dec = (m[2].indexOf('.') > -1) ? 1 : 0;
+			var dur = 1100, start = performance.now();
+			function tick(now){
+				var p = Math.min((now - start) / dur, 1);
+				var eased = 1 - Math.pow(1 - p, 3);
+				var val = (target * eased).toFixed(dec);
+				el.textContent = pre + val + suf;
+				if(p < 1) requestAnimationFrame(tick);
+			}
+			requestAnimationFrame(tick);
+		});
+	}, { threshold: 0.5 });
+	if (!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches)) {
+		nums.forEach(function(el){ cio.observe(el); });
+	}
 })();
 </script>
 <?php wp_footer(); ?>

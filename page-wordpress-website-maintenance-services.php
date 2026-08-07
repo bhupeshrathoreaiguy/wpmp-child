@@ -429,6 +429,21 @@ $book_link = ! empty( $cfg['book_url'] ) ? esc_url( $cfg['book_url'] ) : '#conta
 	.fp .quote .who b{display:block}
 	.fp .quote .who span{color:var(--muted)}
 
+	/* author box (EEAT) */
+	.fp .author-box-sec{padding:56px 0}
+	.fp .author-box{display:flex;gap:22px;align-items:flex-start;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:28px;max-width:820px;margin:0 auto}
+	.fp .ab-photo{flex:0 0 96px;width:96px;height:96px;border-radius:16px;object-fit:cover;border:1px solid var(--line)}
+	.fp .ab-fallback{display:grid;place-items:center;background:var(--accent-soft);color:var(--accent-deep)}
+	.fp .ab-fallback svg{width:40px;height:40px}
+	.fp .ab-kicker{display:inline-flex;align-items:center;gap:7px;font-size:.78rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--accent-deep)}
+	.fp .ab-kicker svg{width:14px;height:14px}
+	.fp .ab-name{font-size:1.3rem;margin:8px 0 2px}
+	.fp .ab-role{color:var(--accent-deep);font-weight:600;font-size:.92rem;margin:0 0 10px}
+	.fp .ab-bio{color:var(--muted);font-size:.98rem;margin:0 0 14px}
+	.fp .ab-links{display:flex;gap:16px;flex-wrap:wrap;font-weight:700;font-size:.92rem}
+	.fp .ab-links a{color:var(--accent-deep)}
+	.fp .ab-updated{text-align:center;color:var(--muted);font-size:.85rem;margin-top:16px}
+	@media(max-width:640px){.fp .author-box{flex-direction:column;align-items:center;text-align:center}.fp .ab-links{justify-content:center}}
 	/* guarantee */
 	.fp .guarantee{background:var(--ink);color:#fff;text-align:center}
 	.fp .guarantee h2{color:#fff;max-width:18ch;margin:0 auto}
@@ -743,8 +758,33 @@ $book_link = ! empty( $cfg['book_url'] ) ? esc_url( $cfg['book_url'] ) : '#conta
 	</div>
 </section>
 
-<!-- FAQ -->
-<section id="faq">
+<!-- AUTHOR / EEAT -->
+<?php
+$author_photo = ''; // paste the media URL of bhupesh-rathore.webp here (or leave blank for icon)
+?>
+<section class="author-box-sec">
+	<div class="wrap">
+		<div class="author-box">
+			<?php if ( $author_photo ) : ?>
+				<img class="ab-photo" src="<?php echo esc_url( $author_photo ); ?>" alt="Bhupesh Rathore, founder of ThinkFlow Media" width="96" height="96" loading="lazy">
+			<?php else : ?>
+				<span class="ab-photo ab-fallback"><?php echo fp_icon( 'user' ); ?></span>
+			<?php endif; ?>
+			<div class="ab-body">
+				<span class="ab-kicker"><?php echo fp_icon( 'check' ); ?>Written &amp; reviewed by</span>
+				<h3 class="ab-name">Bhupesh Rathore</h3>
+				<p class="ab-role">Founder, ThinkFlow Media &amp; Linkflow.agency &middot; 8+ years in WordPress &amp; SEO</p>
+				<p class="ab-bio">Bhupesh has managed and maintained dozens of WordPress sites across SaaS, ecommerce, local and content businesses. This page reflects hands-on experience keeping real sites secure, fast and online, not recycled theory.</p>
+				<div class="ab-links">
+					<a href="<?php echo esc_url( home_url( '/author-profile/' ) ); ?>">Full profile</a>
+					<a href="https://www.linkedin.com/in/bhupesh-rathore/" target="_blank" rel="noopener">LinkedIn</a>
+					<a href="https://x.com/bhupeshrathodz" target="_blank" rel="noopener">X</a>
+				</div>
+			</div>
+		</div>
+		<p class="ab-updated">Last reviewed and updated <?php echo esc_html( get_the_modified_date( 'F Y' ) ?: date( 'F Y' ) ); ?>.</p>
+	</div>
+</section>
 	<div class="wrap">
 		<div class="center">
 			<span class="eyebrow">FAQ</span>
@@ -813,11 +853,17 @@ $ld = array(
 			'name'        => 'WordPress Website Maintenance Services',
 			'url'         => $canonical,
 			'description' => $cfg['seo_desc'],
+			'author'      => array(
+				'@type' => 'Person',
+				'name'  => 'Bhupesh Rathore',
+				'url'   => home_url( '/author-profile/' ),
+				'jobTitle' => 'Founder, ThinkFlow Media',
+				'sameAs'   => array( 'https://www.linkedin.com/in/bhupesh-rathore/', 'https://x.com/bhupeshrathodz' ),
+			),
 			'provider'    => array(
 				'@type'     => 'ProfessionalService',
 				'name'      => $cfg['brand'],
 				'url'       => home_url( '/' ),
-				'telephone' => $cfg['phone_raw'],
 				'email'     => $cfg['email'],
 			),
 			'areaServed'  => array( '@type' => 'Country', 'name' => 'United States' ),

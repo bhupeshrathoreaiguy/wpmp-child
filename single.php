@@ -155,7 +155,7 @@ $rt_min   = max( 1, (int) ceil( $rt_words / 220 ) );
 	</div>
 
 	<?php if ( has_post_thumbnail() ) : ?>
-		<div class="feat-img"><?php the_post_thumbnail( 'large' ); ?></div>
+		<div class="feat-img"><?php the_post_thumbnail( 'large', array( 'loading' => 'lazy', 'decoding' => 'async' ) ); ?></div>
 	<?php endif; ?>
 
 	<div class="wrap layout">
