@@ -12,7 +12,7 @@ $c = wpmp_cfg();
 $services = array(
 	array( 'WordPress Website Maintenance Services', '/wordpress-website-maintenance-services/', true ),
 	array( 'Website Maintenance Cost Guide',        '/website-maintenance-cost/',               true ),
-	array( 'Website Maintenance Plans',             '/website-maintenance-plans/',              false ),
+	array( 'Website Maintenance Plans',             '/website-maintenance-plans/',              true ),
 	array( 'WordPress Care Plans',                  '/wordpress-care-plans/',                   false ),
 	array( 'Malware Removal & Security',            '/wordpress-malware-removal-security/',     false ),
 	array( 'Ecommerce Website Maintenance',         '/ecommerce-website-maintenance/',          false ),
