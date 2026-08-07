@@ -877,7 +877,7 @@ $author_photo = 'https://wpwebsitemaintenancepackages.com/wp-content/uploads/202
 				<span class="ab-kicker"><?php echo fp_icon( 'check' ); ?>Written &amp; reviewed by</span>
 				<h3 class="ab-name">Bhupesh Rathore</h3>
 				<p class="ab-role">Founder, ThinkFlow Media &amp; Linkflow.agency &middot; 8+ years in WordPress &amp; SEO</p>
-				<p class="ab-bio">Bhupesh has managed and maintained dozens of WordPress sites across SaaS, ecommerce, local and content businesses. This page reflects hands-on experience keeping real sites secure, fast and online, not recycled theory.</p>
+				<p class="ab-bio"><?php echo esc_html( wpmp_cfg()['author_bio'] ); ?></p>
 				<div class="ab-links">
 					<a href="<?php echo esc_url( home_url( '/author-profile/' ) ); ?>">Full profile</a>
 					<a href="https://www.linkedin.com/in/bhupesh-rathore/" target="_blank" rel="noopener">LinkedIn</a>

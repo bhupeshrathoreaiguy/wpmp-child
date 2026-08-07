@@ -723,7 +723,7 @@ include get_theme_file_path( 'parts/site-header.php' );
 				<span class="k">Written &amp; reviewed by</span>
 				<h3>Bhupesh Rathore</h3>
 				<p class="role">Founder, ThinkFlow Media &amp; Linkflow.agency &middot; 8+ years in WordPress &amp; SEO</p>
-				<p>These figures come from managing and maintaining dozens of WordPress sites across business, ecommerce and content niches, and from tracking real 2026 provider pricing, not from copying other pricing guides.</p>
+				<p><?php echo esc_html( $c['author_bio'] ); ?></p>
 				<a href="<?php echo esc_url( home_url( '/author-profile/' ) ); ?>">Full profile</a>
 				<a href="<?php echo esc_url( $c['linkedin'] ); ?>" target="_blank" rel="noopener">LinkedIn</a>
 				<a href="<?php echo esc_url( $c['x'] ); ?>" target="_blank" rel="noopener">X</a>

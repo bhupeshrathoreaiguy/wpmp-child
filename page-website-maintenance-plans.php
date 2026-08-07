@@ -480,7 +480,7 @@ include get_theme_file_path( 'parts/site-header.php' );
 				<span class="k">Written &amp; reviewed by</span>
 				<h3>Bhupesh Rathore</h3>
 				<p class="role">Founder, ThinkFlow Media &amp; Linkflow.agency &middot; 8+ years in WordPress &amp; SEO</p>
-				<p>These plans reflect years of maintaining real WordPress sites across business, ecommerce and content niches, structured around the six jobs every live site actually needs, and the 2026 threat data that makes them non-negotiable.</p>
+				<p><?php echo esc_html( $c['author_bio'] ); ?></p>
 				<a href="<?php echo esc_url( home_url( '/author-profile/' ) ); ?>">Full profile</a>
 				<a href="<?php echo esc_url( $c['linkedin'] ); ?>" target="_blank" rel="noopener">LinkedIn</a>
 				<a href="<?php echo esc_url( $c['x'] ); ?>" target="_blank" rel="noopener">X</a>
