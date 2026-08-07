@@ -15,7 +15,7 @@ $wpmp_seo = array(
 require_once get_theme_file_path( 'parts/config.php' );
 $c = wpmp_cfg();
 
-$founder_photo = ''; // optional: paste a media URL to override the Featured Image
+$founder_photo = 'https://wpwebsitemaintenancepackages.com/wp-content/uploads/2026/08/bhupesh-rathore-1.webp';
 $photo = $founder_photo;
 if ( ! $photo && has_post_thumbnail( get_queried_object_id() ) ) {
 	$photo = get_the_post_thumbnail_url( get_queried_object_id(), 'large' );
