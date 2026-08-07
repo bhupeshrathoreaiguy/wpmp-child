@@ -38,7 +38,7 @@ $cfg = array(
 	'phone_raw'    => '+15550102030',
 	'email'        => 'hello@thinkflow.agency',
 
-	'form_shortcode' => '',   // e.g. '[wpforms id="123"]'  — empty uses the fallback form
+	'form_shortcode' => '[fluentform id="3"]',   // e.g. '[wpforms id="123"]'  — empty uses the fallback form
 	'book_url'       => '',    // optional Calendly link; empty anchors to #contact
 
 	'rating'        => '4.9',

@@ -68,6 +68,7 @@ $cfg = array(
 				'Security hardening & malware scanning',
 				'Monthly plain-English health report',
 				'Email support',
+				'1 SEO blog post per month',
 			),
 			'cta' => 'Start Essential',
 		),
@@ -82,6 +83,7 @@ $cfg = array(
 				'Priority support (under 4-hour response)',
 				'2 hours of content edits / dev work monthly',
 				'Staging-tested updates before going live',
+				'2 SEO blog posts per month',
 			),
 			'cta' => 'Start Growth',
 		),
@@ -96,6 +98,7 @@ $cfg = array(
 				'Dedicated account manager',
 				'White-label monthly reports for your clients',
 				'Emergency phone support',
+				'3 SEO blog posts per month',
 			),
 			'cta' => 'Talk to us',
 		),
@@ -198,6 +201,7 @@ if ( ! $has_seo_plugin ) {
 }
 
 $canonical = home_url( '/' );
+add_filter( 'rank_math/frontend/canonical', function() use ( $canonical ) { return $canonical; } );
 $book_link = ! empty( $cfg['book_url'] ) ? esc_url( $cfg['book_url'] ) : '#contact';
 
 if ( ! function_exists( 'fp_icon' ) ) {
@@ -233,7 +237,6 @@ if ( ! function_exists( 'fp_icon' ) ) {
 	<?php if ( ! $has_seo_plugin ) : ?>
 	<meta name="description" content="<?php echo esc_attr( $cfg['seo_desc'] ); ?>">
 	<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
-	<link rel="canonical" href="<?php echo esc_url( $canonical ); ?>">
 	<meta property="og:type" content="website">
 	<meta property="og:title" content="<?php echo esc_attr( $cfg['seo_title'] ); ?>">
 	<meta property="og:description" content="<?php echo esc_attr( $cfg['seo_desc'] ); ?>">
@@ -246,6 +249,7 @@ if ( ! function_exists( 'fp_icon' ) ) {
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+	<link rel="canonical" href="<?php echo esc_url( $canonical ); ?>">
 	<?php wp_head(); ?>
 	<style>
 	:root{
@@ -469,6 +473,43 @@ if ( ! function_exists( 'fp_icon' ) ) {
 		body.fp{padding-bottom:76px}
 	}
 	@media(max-width:520px){.fp .hero-cta .btn{width:100%;justify-content:center}.fp .market,.fp .grid-4,.fp .steps{grid-template-columns:1fr 1fr}}
+	/* ===== Batch 2: hero graphics + motion ===== */
+	.fp .hero::after{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(14,159,110,.14) 1px,transparent 1px);background-size:26px 26px;-webkit-mask-image:radial-gradient(70% 60% at 80% 10%,#000,transparent 70%);mask-image:radial-gradient(70% 60% at 80% 10%,#000,transparent 70%);opacity:.5;pointer-events:none}
+	.fp .blob{position:absolute;border-radius:50%;filter:blur(40px);opacity:.5;pointer-events:none;z-index:0}
+	.fp .blob-1{width:340px;height:340px;background:radial-gradient(circle,rgba(14,159,110,.35),transparent 70%);top:-80px;right:-60px;animation:float1 14s ease-in-out infinite}
+	.fp .blob-2{width:260px;height:260px;background:radial-gradient(circle,rgba(63,217,163,.28),transparent 70%);bottom:-90px;left:-40px;animation:float2 18s ease-in-out infinite}
+	.fp .hero-grid{z-index:1}
+	.fp .hero h1 em::after{transform-origin:left;animation:markGrow 1s .5s ease both;transform:scaleX(0)}
+	@keyframes markGrow{to{transform:scaleX(1)}}
+	@keyframes float1{0%,100%{transform:translate(0,0)}50%{transform:translate(-24px,26px)}}
+	@keyframes float2{0%,100%{transform:translate(0,0)}50%{transform:translate(28px,-22px)}}
+	/* entrance for hero content */
+	.fp .hero-grid>div>*{opacity:0;animation:heroIn .7s ease forwards}
+	.fp .hero-grid>div>*:nth-child(1){animation-delay:.05s}
+	.fp .hero-grid>div>*:nth-child(2){animation-delay:.15s}
+	.fp .hero-grid>div>*:nth-child(3){animation-delay:.25s}
+	.fp .hero-grid>div>*:nth-child(4){animation-delay:.35s}
+	.fp .hero-grid>div>*:nth-child(5){animation-delay:.45s}
+	.fp .hero-grid>div>*:nth-child(6){animation-delay:.55s}
+	.fp .hero .health{animation:rise .7s .35s both}
+	@keyframes heroIn{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+	/* scroll reveal */
+	.fp .reveal{opacity:0;transform:translateY(26px);transition:opacity .6s ease,transform .6s ease}
+	.fp .reveal.in{opacity:1;transform:none}
+	.fp .card,.fp .plan,.fp .use,.fp .step,.fp .quote,.fp .mk{transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease,opacity .6s ease}
+	/* plan hover lift */
+	.fp .plan:not(.popular):hover{transform:translateY(-6px);box-shadow:var(--shadow)}
+	.fp .plan.popular:hover{transform:translateY(-12px)}
+	.fp .btn-primary{position:relative;overflow:hidden}
+	.fp .btn-primary::after{content:"";position:absolute;top:0;left:-120%;width:60%;height:100%;background:linear-gradient(120deg,transparent,rgba(255,255,255,.35),transparent);transform:skewX(-20deg)}
+	.fp .btn-primary:hover::after{animation:sheen .8s ease}
+	@keyframes sheen{to{left:130%}}
+	@media (prefers-reduced-motion: reduce){
+		.fp *{animation:none!important;transition:none!important}
+		.fp .reveal{opacity:1!important;transform:none!important}
+		.fp .hero-grid>div>*{opacity:1!important}
+		.fp .hero h1 em::after{transform:scaleX(1)!important}
+	}
 	</style>
 </head>
 <body <?php body_class( 'fp' ); ?>>
@@ -478,6 +519,8 @@ if ( ! function_exists( 'fp_icon' ) ) {
 
 <!-- ======================= HERO ======================= -->
 <section class="hero">
+	<span class="blob blob-1" aria-hidden="true"></span>
+	<span class="blob blob-2" aria-hidden="true"></span>
 	<div class="wrap hero-grid">
 		<div>
 			<span class="hero-pill"><span class="dot"></span> Trusted by <?php echo esc_html( $cfg['sites_managed'] ); ?> WordPress sites</span>
@@ -1050,6 +1093,18 @@ echo wp_json_encode( $ld, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE );
 ?>
 </script>
 
+<script>
+(function(){
+	if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+	var els = document.querySelectorAll('.fp .card, .fp .plan, .fp .use, .fp .step, .fp .quote, .fp .mk, .fp .center, .fp .prose > h2');
+	els.forEach(function(el){ el.classList.add('reveal'); });
+	if (!('IntersectionObserver' in window)) { els.forEach(function(el){ el.classList.add('in'); }); return; }
+	var io = new IntersectionObserver(function(entries){
+		entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+	}, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+	els.forEach(function(el){ io.observe(el); });
+})();
+</script>
 <?php wp_footer(); ?>
 </body>
 </html>
