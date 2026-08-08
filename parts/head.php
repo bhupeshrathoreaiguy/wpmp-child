@@ -10,8 +10,8 @@ require_once get_theme_file_path( 'parts/config.php' );
 $c = wpmp_cfg();
 $has_seo = ( defined( 'WPSEO_VERSION' ) || class_exists( 'RankMath' ) || defined( 'AIOSEO_VERSION' ) || function_exists( 'aioseo' ) || defined( 'SEOPRESS_VERSION' ) );
 $seo = isset( $wpmp_seo ) ? $wpmp_seo : array();
-$wpmp_canonical = get_permalink( get_queried_object_id() ) ?: home_url( '/' );
-add_filter( 'rank_math/frontend/canonical', function() use ( $wpmp_canonical ) { return $wpmp_canonical; } );
+$wpmp_canonical = ( is_singular() || is_front_page() ) ? ( get_permalink( get_queried_object_id() ) ?: home_url( '/' ) ) : '';
+add_filter( 'rank_math/frontend/canonical', function( $canon ) use ( $wpmp_canonical ) { return $wpmp_canonical ?: $canon; } );
 ?><!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 <head>

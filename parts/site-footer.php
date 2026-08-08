@@ -26,6 +26,7 @@ $company = array(
 	array( 'Blog',            '/blog/',    true ),
 	array( 'Author: ' . $c['founder'], '/author-profile/', true ),
 	array( 'Free Contract Template', '/website-maintenance-contract-template/', true ),
+	array( 'Website Maintenance Checklist', '/website-maintenance-checklist/', true ),
 );
 $legal = array(
 	array( 'Privacy Policy',  '/privacy-policy/', true ),
