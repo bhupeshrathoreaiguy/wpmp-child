@@ -117,6 +117,8 @@ $rt_min   = max( 1, (int) ceil( $rt_words / 220 ) );
 		.fp .prose tbody tr:nth-child(even){background:#fbfbf7}
 		.fp .prose td:first-child{font-weight:600}
 		.fp .prose blockquote strong:first-child{color:var(--accent-deep)}
+		.fp .prose .tldr{background:var(--accent-soft);border:1px solid #cdeede;border-left:4px solid var(--accent);border-radius:12px;padding:15px 20px;margin:0 0 26px;font-size:1.04rem;line-height:1.55;color:#17251d}
+		.fp .prose .tldr strong:first-child{color:var(--accent-deep);font-weight:800}
 		@media(max-width:640px){.fp .prose table{display:block;overflow-x:auto;white-space:nowrap}}
 	/* author box */
 	.fp .author{max-width:760px;margin:30px auto 0;display:flex;gap:16px;align-items:center;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:22px}
@@ -245,6 +247,8 @@ if ( $rel->have_posts() ) :
 	prose.insertBefore(box,prose.firstChild);
 })();
 </script>
+
+<?php include get_theme_file_path( 'parts/person-schema.php' ); ?>
 
 <?php wp_footer(); ?>
 </body>

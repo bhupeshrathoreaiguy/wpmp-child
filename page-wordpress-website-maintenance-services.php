@@ -522,6 +522,8 @@ $book_link = ! empty( $cfg['book_url'] ) ? esc_url( $cfg['book_url'] ) : '#conta
 		.fp .hero-cta .btn{width:100%;justify-content:center}
 		.fp .stats-grid,.fp .grid-4,.fp .steps{grid-template-columns:repeat(2,1fr)}
 	}
+		.fp .tldr{background:var(--accent-soft);border:1px solid #cdeede;border-left:4px solid var(--accent);border-radius:12px;padding:15px 20px;margin:22px 0 0;font-size:1.02rem;line-height:1.55;color:#17251d;max-width:72ch}
+	.fp .tldr strong:first-child{color:var(--accent-deep);font-weight:800}
 	</style>
 </head>
 
@@ -546,6 +548,7 @@ $book_link = ! empty( $cfg['book_url'] ) ? esc_url( $cfg['book_url'] ) : '#conta
 			<span class="eyebrow">Managed WordPress maintenance, USA</span>
 			<h1><?php echo $hero_heading; ?></h1>
 			<p class="lead"><?php echo $hero_lead; ?></p>
+			<div class="tldr"><strong>Quick answer:</strong> WordPress website maintenance is the ongoing, done-for-you care of a WordPress site: staging-tested updates, security and malware protection, daily off-site backups, speed tuning and real developer support on a fixed monthly plan.</div>
 			<div class="hero-cta">
 				<a class="btn btn-primary" href="#pricing">See Plans &amp; Pricing <?php echo fp_icon( 'arrow' ); ?></a>
 				<a class="btn btn-ghost" href="#contact"><?php echo fp_icon( 'check' ); ?>Get a free site audit</a>

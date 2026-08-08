@@ -521,6 +521,8 @@ if ( ! function_exists( 'fp_icon' ) ) {
 	.fp .mk svg{width:15px;height:15px;color:var(--accent)}
 	@keyframes scrollx{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 	.fp .stat .n{will-change:contents}
+		.fp .tldr{background:var(--accent-soft);border:1px solid #cdeede;border-left:4px solid var(--accent);border-radius:12px;padding:15px 20px;margin:22px 0 0;font-size:1.02rem;line-height:1.55;color:#17251d;max-width:72ch}
+	.fp .tldr strong:first-child{color:var(--accent-deep);font-weight:800}
 	</style>
 </head>
 <body <?php body_class( 'fp' ); ?>>
@@ -537,6 +539,7 @@ if ( ! function_exists( 'fp_icon' ) ) {
 			<span class="hero-pill"><span class="dot"></span> Founder-led &middot; 8+ years in WordPress &amp; SEO</span>
 			<h1>WordPress Website <em>Maintenance Packages</em> That Pay for Themselves</h1>
 			<p class="lead">Flat-rate monthly care that keeps your website updated, secure, backed up and fast, handled by real WordPress developers. One hack cleanup or one day of downtime costs more than a year of maintenance. We make sure you never pay for either.</p>
+			<div class="tldr"><strong>Quick answer:</strong> A website maintenance package is a flat monthly service that keeps your WordPress site updated, secure, backed up, fast and monitored, handled by real developers from $59/mo with no contracts.</div>
 			<div class="hero-cta">
 				<a class="btn btn-primary" href="#pricing">Compare Packages <?php echo fp_icon( 'arrow' ); ?></a>
 				<a class="btn btn-ghost" href="#contact"><?php echo fp_icon( 'check' ); ?>Get a Free Site Audit</a>
