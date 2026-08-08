@@ -42,6 +42,9 @@ add_filter( 'rank_math/frontend/canonical', function( $canon ) use ( $wpmp_canon
 	.fp .eyebrow{font-size:.82rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--accent-deep);display:inline-flex;align-items:center;gap:8px}
 	.fp .eyebrow::before{content:"";width:22px;height:2px;background:var(--accent)}
 	.fp .lead{color:var(--muted);font-size:1.14rem;max-width:60ch}
+	.fp .tldr{background:var(--accent-soft);border:1px solid #cdeede;border-left:4px solid var(--accent);border-radius:12px;padding:15px 20px;margin:22px 0 0;font-size:1.02rem;line-height:1.55;color:#17251d;max-width:72ch}
+	.fp .tldr strong:first-child{color:var(--accent-deep);font-weight:800}
+	
 	.fp .center{text-align:center;max-width:720px;margin:0 auto 46px}
 	.fp .center .lead{margin:14px auto 0}
 	/* buttons */
