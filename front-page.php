@@ -519,6 +519,8 @@ if ( ! function_exists( 'fp_icon' ) ) {
 	.fp .marquee:hover .marquee-track{animation-play-state:paused}
 	.fp .mk{display:inline-flex;align-items:center;gap:8px;white-space:nowrap;background:#fff;border:1px solid var(--line);border-radius:99px;padding:11px 20px;font-weight:700;font-size:.95rem;color:var(--ink);box-shadow:0 1px 2px rgba(16,20,26,.03)}
 	.fp .mk svg{width:15px;height:15px;color:var(--accent)}
+	/* market-tier cards must be wrapping blocks, not nowrap pills */
+	.fp .market .mk{display:block;white-space:normal;background:var(--surface);border-radius:var(--radius);padding:22px;font-weight:400;font-size:1rem;color:var(--ink);box-shadow:var(--shadow);max-width:100%}
 	@keyframes scrollx{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 	.fp .stat .n{will-change:contents}
 		.fp .tldr{background:var(--accent-soft);border:1px solid #cdeede;border-left:4px solid var(--accent);border-radius:12px;padding:15px 20px;margin:22px 0 0;font-size:1.02rem;line-height:1.55;color:#17251d;max-width:72ch}
