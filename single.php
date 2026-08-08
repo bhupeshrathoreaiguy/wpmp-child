@@ -120,12 +120,18 @@ $rt_min   = max( 1, (int) ceil( $rt_words / 220 ) );
 		.fp .prose .tldr{background:var(--accent-soft);border:1px solid #cdeede;border-left:4px solid var(--accent);border-radius:12px;padding:15px 20px;margin:0 0 26px;font-size:1.04rem;line-height:1.55;color:#17251d}
 		.fp .prose .tldr strong:first-child{color:var(--accent-deep);font-weight:800}
 		@media(max-width:640px){.fp .prose table{display:block;overflow-x:auto;white-space:nowrap}}
-	/* author box */
-	.fp .author{max-width:760px;margin:30px auto 0;display:flex;gap:16px;align-items:center;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:22px}
-	.fp .author .av{flex:0 0 54px;width:54px;height:54px;border-radius:50%;background:var(--accent-soft);color:var(--accent-deep);display:grid;place-items:center}
-	.fp .author .av svg{width:26px;height:26px}
-	.fp .author b{font-family:var(--display);font-size:1.05rem}
-	.fp .author p{margin:4px 0 0;color:var(--muted);font-size:.94rem}
+	/* author box (E-E-A-T) */
+	.fp .author{max-width:760px;margin:36px auto 0;display:flex;gap:20px;align-items:flex-start;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:26px}
+	.fp .author .av-img{flex:0 0 76px;width:76px;height:76px;border-radius:14px;object-fit:cover;border:1px solid var(--line)}
+	.fp .author .au-k{font-size:.72rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--accent-deep);display:block}
+	.fp .author b{font-family:var(--display);font-size:1.18rem;display:block;margin:5px 0 2px}
+	.fp .author b a:hover{color:var(--accent-deep)}
+	.fp .author .au-role{color:var(--accent-deep);font-weight:600;font-size:.88rem;display:block;margin-bottom:9px}
+	.fp .author p{margin:0 0 12px;color:var(--muted);font-size:.94rem}
+	.fp .author .au-links{display:flex;flex-wrap:wrap;gap:18px}
+	.fp .author .au-links a{color:var(--accent-deep);font-weight:700;font-size:.88rem}
+	.fp .author .au-links a:hover{text-decoration:underline}
+	@media(max-width:600px){.fp .author{flex-direction:column}}
 	/* CTA band */
 	.fp .cta{background:var(--ink);color:#fff;margin-top:52px}
 	.fp .cta-inner{max-width:760px;margin:0 auto;padding:52px 22px;text-align:center}
