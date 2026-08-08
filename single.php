@@ -111,6 +111,13 @@ $rt_min   = max( 1, (int) ceil( $rt_words / 220 ) );
 	.fp .prose blockquote p:last-child{margin:0}
 	.fp .prose strong{font-weight:700}
 	.fp .prose h2,.fp .prose h3{scroll-margin-top:90px}
+		.fp .prose table{width:100%;border-collapse:collapse;font-size:.98rem;margin:0 0 24px;border:1px solid var(--line);border-radius:12px;overflow:hidden}
+		.fp .prose thead th{background:var(--ink);color:#fff;font-family:var(--display);font-weight:700;text-align:left;padding:12px 15px;font-size:.9rem}
+		.fp .prose td,.fp .prose th{padding:12px 15px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+		.fp .prose tbody tr:nth-child(even){background:#fbfbf7}
+		.fp .prose td:first-child{font-weight:600}
+		.fp .prose blockquote strong:first-child{color:var(--accent-deep)}
+		@media(max-width:640px){.fp .prose table{display:block;overflow-x:auto;white-space:nowrap}}
 	/* author box */
 	.fp .author{max-width:760px;margin:30px auto 0;display:flex;gap:16px;align-items:center;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:22px}
 	.fp .author .av{flex:0 0 54px;width:54px;height:54px;border-radius:50%;background:var(--accent-soft);color:var(--accent-deep);display:grid;place-items:center}
