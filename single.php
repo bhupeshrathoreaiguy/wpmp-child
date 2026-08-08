@@ -97,7 +97,7 @@ $rt_min   = max( 1, (int) ceil( $rt_words / 220 ) );
 	.fp .feat-img{max-width:1140px;margin:26px auto 0;padding:0 22px}
 	.fp .feat-img img{width:100%;height:auto;border-radius:var(--radius);border:1px solid var(--line)}
 	/* prose (editor content) */
-	.fp .layout{display:grid;grid-template-columns:minmax(0,760px);justify-content:center;padding:44px 0 20px}
+	.fp .layout{display:grid;grid-template-columns:minmax(0,760px);justify-content:center;padding:44px 22px 20px}
 	.fp .prose{font-size:1.09rem}
 	.fp .prose>*{margin:0 0 20px}
 	.fp .prose h2{font-size:1.7rem;margin:40px 0 14px}
