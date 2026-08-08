@@ -70,14 +70,14 @@ function wpmp_foot_links( $items ) {
 @media(max-width:860px){.fp .foot-grid{grid-template-columns:1fr 1fr}.fp .foot-brand{grid-column:1/-1}}
 @media(max-width:520px){.fp .foot-grid{grid-template-columns:1fr}}
 /* ===== global mobile + speed hardening (loads on every page) ===== */
-html{-webkit-text-size-adjust:100%}
+html{-webkit-text-size-adjust:100%;overflow-x:clip}
 body.fp{overflow-x:clip}
 .fp img,.fp svg,.fp video{max-width:100%}
 .fp img{height:auto}
 .fp table{max-width:100%}
 /* wide tables scroll instead of breaking the layout on phones */
 @media(max-width:680px){
-	.fp table{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch;white-space:nowrap}
+	.fp table,.fp table.cg-tbl,.fp table.mx,.fp table.matrix{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch;white-space:nowrap;min-width:0!important;width:100%;max-width:100%}
 	.fp .blob{display:none!important}          /* drop GPU-heavy blur on mobile */
 	.fp .marquee-track{animation-duration:24s}
 	.fp section{padding:48px 0}
