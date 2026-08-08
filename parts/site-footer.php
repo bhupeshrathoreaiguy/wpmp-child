@@ -18,7 +18,7 @@ $services = array(
 	array( 'Malware Removal & Security',            '/wordpress-malware-removal-security/',     false ),
 	array( 'Ecommerce Website Maintenance',         '/ecommerce-website-maintenance/',          true ),
 	array( 'Website Hosting &amp; Maintenance',        '/website-hosting-and-maintenance/',        true ),
-	array( 'Small Business Website Maintenance',    '/small-business-website-maintenance/',     false ),
+	array( 'Small Business Website Maintenance',    '/small-business-website-maintenance/',     true ),
 );
 $company = array(
 	array( 'About Us',        '/about/',   true ),
