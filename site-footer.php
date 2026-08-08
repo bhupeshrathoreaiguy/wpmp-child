@@ -14,15 +14,19 @@ $services = array(
 	array( 'Website Maintenance Cost Guide',        '/website-maintenance-cost/',               true ),
 	array( 'Website Maintenance Plans',             '/website-maintenance-plans/',              true ),
 	array( 'WordPress Care Plans',                  '/wordpress-care-plans/',                   true ),
-	array( 'Malware Removal & Security',            '/wordpress-malware-removal-security/',     false ),
-	array( 'Ecommerce Website Maintenance',         '/ecommerce-website-maintenance/',          false ),
-	array( 'Small Business Website Maintenance',    '/small-business-website-maintenance/',     false ),
+	array( 'Website Maintenance Company (USA)',     '/website-maintenance-company/',            true ),
+	array( 'Malware Removal & Security',            '/wordpress-malware-removal-security/',     true ),
+	array( 'Ecommerce Website Maintenance',         '/ecommerce-website-maintenance/',          true ),
+	array( 'Website Hosting &amp; Maintenance',        '/website-hosting-and-maintenance/',        true ),
+	array( 'Small Business Website Maintenance',    '/small-business-website-maintenance/',     true ),
 );
 $company = array(
 	array( 'About Us',        '/about/',   true ),
 	array( 'Contact',         '/contact/', true ),
 	array( 'Blog',            '/blog/',    true ),
 	array( 'Author: ' . $c['founder'], '/author-profile/', true ),
+	array( 'Free Contract Template', '/website-maintenance-contract-template/', true ),
+	array( 'Website Maintenance Checklist', '/website-maintenance-checklist/', true ),
 );
 $legal = array(
 	array( 'Privacy Policy',  '/privacy-policy/', true ),
