@@ -35,6 +35,15 @@ if ( ! function_exists( 'fp_icon' ) ) {
 	}
 }
 
+require_once get_theme_file_path( 'parts/config.php' );
+$c            = wpmp_cfg();
+$author_photo = 'https://wpwebsitemaintenancepackages.com/wp-content/uploads/2026/08/bhupesh-rathore-1.webp';
+$author_url   = home_url( '/author-profile/' );
+$post_author  = get_post_field( 'post_author', get_queried_object_id() );
+$disp         = get_the_author_meta( 'display_name', $post_author );
+/* never show the raw email as the author name */
+$author_name  = ( ! $disp || strpos( $disp, '@' ) !== false ) ? 'Bhupesh Rathore' : $disp;
+
 /* reading time from the post body */
 $rt_words = str_word_count( wp_strip_all_tags( get_the_content() ) );
 $rt_min   = max( 1, (int) ceil( $rt_words / 220 ) );
@@ -153,8 +162,9 @@ $rt_min   = max( 1, (int) ceil( $rt_words / 220 ) );
 			<h1><?php the_title(); ?></h1>
 			<div class="meta">
 				<span><?php echo fp_icon( 'clock' ); ?><?php echo (int) $rt_min; ?> min read</span>
-				<span><?php echo fp_icon( 'user' ); ?><?php the_author(); ?></span>
-				<span>Updated <?php echo esc_html( get_the_modified_date() ); ?></span>
+				<span><?php echo fp_icon( 'user' ); ?>By <a class="meta-au" href="<?php echo esc_url( $author_url ); ?>"><?php echo esc_html( $author_name ); ?></a></span>
+				<span><?php echo fp_icon( 'cal' ); ?>Published <?php echo esc_html( get_the_date() ); ?></span>
+				<?php if ( get_the_modified_date() !== get_the_date() ) : ?><span>Updated <?php echo esc_html( get_the_modified_date() ); ?></span><?php endif; ?>
 			</div>
 		</div>
 	</div>
@@ -169,10 +179,13 @@ $rt_min   = max( 1, (int) ceil( $rt_words / 220 ) );
 
 	<div class="wrap">
 		<div class="author">
-			<span class="av"><?php echo fp_icon( 'user' ); ?></span>
+			<img class="av-img" src="<?php echo esc_url( $author_photo ); ?>" alt="<?php echo esc_attr( $author_name ); ?>, founder of ThinkFlow Media" width="76" height="76" loading="lazy">
 			<div>
-				<b><?php the_author(); ?></b>
-				<p><?php echo esc_html( get_the_author_meta( 'description' ) ? get_the_author_meta( 'description' ) : wpmp_cfg()['author_bio'] ); ?></p>
+				<span class="au-k">Written &amp; reviewed by</span>
+				<b><a href="<?php echo esc_url( $author_url ); ?>"><?php echo esc_html( $author_name ); ?></a></b>
+				<span class="au-role">Founder, ThinkFlow Media &amp; Linkflow.agency &middot; 8+ years in WordPress &amp; SEO</span>
+				<p><?php echo esc_html( $c['author_bio'] ); ?></p>
+				<span class="au-links"><a href="<?php echo esc_url( $author_url ); ?>">Full profile</a><a href="<?php echo esc_url( $c['linkedin'] ); ?>" target="_blank" rel="noopener">LinkedIn</a><a href="<?php echo esc_url( $c['x'] ); ?>" target="_blank" rel="noopener">X</a></span>
 			</div>
 		</div>
 	</div>
@@ -213,6 +226,18 @@ if ( $rel->have_posts() ) :
 <?php endif; wp_reset_postdata(); ?>
 
 <?php include get_theme_file_path( 'parts/site-footer.php' ); ?>
+
+<script>
+(function(){
+	var prose=document.querySelector('.fp .prose'); if(!prose)return;
+	var hs=[].slice.call(prose.querySelectorAll('h2')); if(hs.length<3)return;
+	var box=document.createElement('div'); box.className='toc-box';
+	var html='<b>In this article</b><ul>';
+	hs.forEach(function(h,i){ if(!h.id){h.id='sec-'+i;} html+='<li><a href="#'+h.id+'">'+h.textContent+'</a></li>'; });
+	box.innerHTML=html+'</ul>';
+	prose.insertBefore(box,prose.firstChild);
+})();
+</script>
 
 <?php wp_footer(); ?>
 </body>
